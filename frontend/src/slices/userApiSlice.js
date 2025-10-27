@@ -1,4 +1,3 @@
-import { Query } from 'mongoose';
 import { apiSlice } from './apiSlice.js';
 
 const USER_URL = '/users';

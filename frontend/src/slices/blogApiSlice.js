@@ -1,4 +1,3 @@
-import { query } from 'mongoose';
 import { apiSlice } from './apiSlice';
 
 const BLOG_URL = '/blogs';
