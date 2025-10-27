@@ -49,6 +49,7 @@ const Blogscreen = () => {
       </div>
     );
 
+ 
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 md:py-12">
@@ -72,6 +73,7 @@ const Blogscreen = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
+    
 
                 {/* Blog Content */}
                 <div className="p-2 sm:p-3 md:p-6">

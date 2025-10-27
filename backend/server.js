@@ -41,7 +41,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/blogs', blogRoutes);
 
 // ✅ serve the uploads folder
-// app.use('/uploads', express.static(path.join(process.cwd(), '/uploads')));
+app.use('/uploads', express.static(path.join(process.cwd(), '/uploads')));
 
 // if(process.env.NODE_ENV === 'production') {
 //     const __dirname = path.resolve();

@@ -32,7 +32,7 @@ const Blogs = () => {
     </div>
   );
 
-  const latestblogs = blogs.slice(0, 3);
+  const latestblogs = blogs?.slice(0, 3);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12">
