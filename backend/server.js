@@ -19,6 +19,7 @@ const MONGO_URL = process.env.MONGO_URL
 app.use(cors({
     origin: [
         'http://localhost:3000',
+        'https://flamezblog-1.onrender.com',
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -40,16 +41,16 @@ app.use('/api/users', userRoutes);
 app.use('/api/blogs', blogRoutes);
 
 // ✅ serve the uploads folder
-app.use('/uploads', express.static(path.join(process.cwd(), '/uploads')));
+// app.use('/uploads', express.static(path.join(process.cwd(), '/uploads')));
 
-if(process.env.NODE_ENV === 'production') {
-    const __dirname = path.resolve();
-    app.use(express.static(path.join(__dirname, 'frontend/dist')));
+// if(process.env.NODE_ENV === 'production') {
+//     const __dirname = path.resolve();
+//     app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
-    app.use( (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html')));
-} else {
-    app.get('/', (req, res) => res.send('Server is Ready'));
-};
+//     app.use( (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html')));
+// } else {
+//     app.get('/', (req, res) => res.send('Server is Ready'));
+// };
 
 //Error Middleware  
 app.use(notFound);
