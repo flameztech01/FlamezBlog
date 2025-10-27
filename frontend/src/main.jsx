@@ -15,11 +15,11 @@ import Homescreen from './screens/Homescreen.jsx'
 import Signup from './screens/Signup.jsx'
 import Signin from './screens/Signin.jsx'
 import Profilescreen from './screens/Profilescreen.jsx'
-import PrivateRoute from './components/PrivateRoute.jsx'
 import Viewblogscreen from './screens/Viewblogscreen.jsx'
 import Postblogscreen from './screens/Postblogscreen.jsx'
 import Blogscreen from './screens/Blogscreen.jsx'
 import Updateblogscreen from './screens/Updateblogscreen.jsx'
+import PrivateRoute from './components/privateRoute.jsx'
 
 const router = createBrowserRouter([
   {
