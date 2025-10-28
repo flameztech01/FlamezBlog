@@ -106,7 +106,7 @@ const ViewBlogScreen = () => {
           {/* Featured Image */}
           <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
             <img
-              src={`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/${blog.image}`}
+              src={blog.image}
               alt={blog.title}
               className="w-full h-auto object-cover"
             />

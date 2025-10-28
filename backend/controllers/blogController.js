@@ -7,7 +7,7 @@ const getBlogs = async (req, res, next) => {
     let query = Blog.find().sort({createdAt: -1});
 
     if(!isNaN(limit) && limit > 0) {
-        query = query(limit)
+        query = query.limit(limit)
     }
     const blogs = await query;
     res.json(blogs);
@@ -62,7 +62,7 @@ const postBlog = async (req, res, next) => {
         description, 
         author: req.user.name , 
         category, 
-        image: `uploads/${req.file.filename}`, 
+        image: req.file.path,
         content, 
         date,
     });

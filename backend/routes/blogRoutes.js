@@ -1,6 +1,9 @@
 import express from "express";
 import { protect } from '../middleware/authMiddleware.js';
 import multer from "multer";
+import { v2 as cloudinary } from 'cloudinary';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
+
 import {
     getBlogs,
     userBlogs,
@@ -13,17 +16,38 @@ import {
 
 const router = express.Router();
 
-// 🧠 Configure multer storage
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, 'uploads/'); // folder must exist
-  },
-  filename(req, file, cb) {
-    cb(null, `${Date.now()}-${file.originalname}`);
+//Cloudinary Configuration with lowercase unserscores
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "flamezblog_uploads",
+    allowed_formats: ["jpg", "png", "jpeg"],
   },
 });
 
-const upload = multer({ storage });
+const upload = multer({storage});
+
+cloudinary.api.ping()
+  .then(result => console.log('✅ Cloudinary connected successfully'))
+  .catch(result => console.error('Cloudinary not fonneted', err.message));
+
+// 🧠 Configure multer storage
+// const storage = multer.diskStorage({
+//   destination(req, file, cb) {
+//     cb(null, 'uploads/'); // folder must exist
+//   },
+//   filename(req, file, cb) {
+//     cb(null, `${Date.now()}-${file.originalname}`);
+//   },
+// });
+
+// const upload = multer({ storage });
 
 //Get all blogs
 router.get('/', protect, getBlogs);

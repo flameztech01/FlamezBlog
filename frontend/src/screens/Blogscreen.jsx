@@ -67,7 +67,7 @@ const Blogscreen = () => {
                 {/* Blog Image */}
                 <div className="relative overflow-hidden">
                   <img
-                    src={`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/${blog.image}`}
+                    src={blog.image}
                     alt={blog.title}
                     className="w-full h-28 sm:h-36 md:h-56 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
